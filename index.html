@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>My App</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 mt-5 mb-4 text-center">
+        <p class="h1">Конвертер температуры</p>
+    </div>
+	
+	<div class="form-group col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4">
+		<label for="usr">Градус Цельсия (&#176;C):</label>
+		<input type="text" class="form-control alert-warning text-center" id="celcius" onkeyup="celciusToFahrenheit()">
+	</div>
+
+	<div class="form-group col-4 offset-4 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4">
+		<label for="pwd">Градус Фаренгейта (&#176;F):</label>
+		<input type="text" class="form-control alert-success text-center" id="fahrenheit" onkeyup="fahrenheitToCelcius()">
+	</div>
+
+	<script>
+		require('./render.js');
+
+		function celciusToFahrenheit(){
+			let celcius = document.getElementById('celcius').value;
+			let fahrenheit = (celcius* 9/5) + 32;
+			document.getElementById('fahrenheit').value = fahrenheit;
+		}
+
+		function fahrenheitToCelcius(){
+			let fahrenheit = document.getElementById('fahrenheit').value;
+			let celcius = (fahrenheit - 32) * 5/9
+			document.getElementById('celcius').value = celcius;
+		}
+	</script>
+</body>
+</html>
